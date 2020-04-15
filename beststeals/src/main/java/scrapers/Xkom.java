@@ -38,8 +38,10 @@ public class Xkom implements IScraper {
 		this.name = hotShot.getElementsByClass("product-name").text();
 		this.oldPrice = hotShot.getElementsByClass("old-price").text();
 		this.newPrice = hotShot.getElementsByClass("new-price").text();
-		this.remaining = hotShot.getElementsByClass("gs-quantity").get(0).text();
-		this.sold = hotShot.getElementsByClass("gs-quantity").get(1).text();
+		if (hotShot.getElementsByClass("gs-quantity").first() != null) { 
+			this.remaining = hotShot.getElementsByClass("gs-quantity").get(0).text();
+			this.sold = hotShot.getElementsByClass("gs-quantity").get(1).text();
+		}
 		Element image = hotShot.getElementsByClass("img-responsive").first();
     	this.img = image.absUrl("src");
 		
