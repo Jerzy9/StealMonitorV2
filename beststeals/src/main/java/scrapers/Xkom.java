@@ -12,7 +12,7 @@ public class Xkom implements IScraper {
 	
 	private String siteLink;
 	private String siteName;
-	private String name;
+	public String name;
 	private String oldPrice, newPrice;
 	private String remaining, sold;
 	private String img;
@@ -35,17 +35,27 @@ public class Xkom implements IScraper {
 		Document doc = Jsoup.connect(siteLink).get();	
 		Element hotShot = doc.getElementById("hotShot");
 		
-		this.name = hotShot.getElementsByClass("product-name").text();
-		this.oldPrice = hotShot.getElementsByClass("old-price").text();
-		this.newPrice = hotShot.getElementsByClass("new-price").text();
-		if (hotShot.getElementsByClass("gs-quantity").first() != null) { 
-			this.remaining = hotShot.getElementsByClass("gs-quantity").get(0).text();
-			this.sold = hotShot.getElementsByClass("gs-quantity").get(1).text();
-		}
+		this.name = getStringByClass(hotShot, "product-name", 0);
+		this.oldPrice = getStringByClass(hotShot, "old-price", 0);
+		this.newPrice = getStringByClass(hotShot, "new-price", 0);
+		this.remaining = getStringByClass(hotShot, "gs-quantity", 0);
+		this.sold = getStringByClass(hotShot, "gs-quantity", 0);
+		
 		Element image = hotShot.getElementsByClass("img-responsive").first();
     	this.img = image.absUrl("src");
 		
 		
+	}
+	
+	private String getStringByClass(Element el, String className, int index) {
+		String str;
+		try {
+			str = el.getElementsByClass(className).get(index).text();
+		} catch (Exception e) {
+			System.out.println("NIE ZNALAZLO WARTOSCI");
+			str = "NIE ZNALAZLO WARTOSCI w klasie: " + className;
+		}
+		return str;
 	}
 
 	public String getSiteName() {

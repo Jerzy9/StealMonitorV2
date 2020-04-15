@@ -6,11 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Home page new</title>
-<link href="<c:url value="/resources/style.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/style.css"/>" rel="stylesheet">
+
+<!-- Przy tej konfiguracji to na dole tez dziala, niech tu bedzie narazie jakby sie cos zepsulo -->
+<%-- <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" > --%>
+
 </head>
 <body>
 	<div class="container">
-    
+	
    			<nav>
                 <ul>
                     <a href="index.html"><li>Glowne promocje</li></a>

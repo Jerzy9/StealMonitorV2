@@ -32,7 +32,7 @@ public class Morele implements IScraper {
 		Document doc = Jsoup.connect("https://www.morele.net").get();
     	Element hotShot = doc.getElementsByClass("home-sections-promotion").get(0);
 		
-		this.siteName = "morele";
+		this.siteName = "morele.net";
     	this.siteLink = "https://www.morele.net";
     	this.name = hotShot.getElementsByClass("promo-box-name").get(0).text();
     	this.newPrice = hotShot.getElementsByClass("promo-box-new-price").get(0).text();
