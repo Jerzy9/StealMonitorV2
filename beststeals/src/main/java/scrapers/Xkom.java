@@ -52,8 +52,7 @@ public class Xkom implements IScraper {
 		try {
 			str = el.getElementsByClass(className).get(index).text();
 		} catch (Exception e) {
-			System.out.println("NIE ZNALAZLO WARTOSCI w klasie: " + className);
-			str = "null";
+			str = "0";
 		}
 		return str;
 	}
