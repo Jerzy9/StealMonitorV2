@@ -25,7 +25,6 @@ public class Xkom implements IScraper {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	
 	public void scrap() throws IOException {
