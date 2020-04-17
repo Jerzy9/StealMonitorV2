@@ -23,7 +23,6 @@ public class XkomHotShotProduct implements IProduct {
 	
 	public boolean scrap() {
 		try {
-			System.out.println(hotShot);
 			this.siteName = "x-kom.pl";
 			
 			//We have to find a way to get this product's link!

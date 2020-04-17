@@ -23,7 +23,6 @@ public class MoreleHotShotProduct implements IProduct{
 	
 	public boolean scrap() {
 		try {
-			System.out.println(hotShot);
 			this.siteName = "morele.net";
 			
 			//We have to find a way to get this product's link!
