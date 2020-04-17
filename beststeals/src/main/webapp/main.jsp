@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                         </div>
-						<form action="${item.getSiteLink()}">
+						<form target="_blank" action="${item.getSiteLink()}">
 						    <input class="link" type="submit" value="Przejdz do strony" />
 						</form>
                         <div class ="counter">
