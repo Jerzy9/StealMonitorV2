@@ -20,11 +20,11 @@ import products.MoreleProduct;
 
 public class Loader implements ILoader {
 
-	public ArrayList<IProduct> getProducts(String url) throws IOException {
+	public ArrayList<IProduct> getProducts(String url, String divClassName) throws IOException {
 		
 		ArrayList<IProduct> products = new ArrayList<IProduct>();
 		Document document = Jsoup.connect(url).get();
-		Elements productDivs = document.getElementsByClass("owl-item");
+		Elements productDivs = document.getElementsByClass(divClassName);
 		
 		for (Element element : productDivs) {
 			MoreleProduct moreleProduct = new MoreleProduct(element);
