@@ -10,6 +10,7 @@ import org.jsoup.select.Elements;
 
 import interfaces.ILoader;
 import interfaces.IProduct;
+import products.MoreleProduct;
 
 
 /* 
@@ -26,7 +27,8 @@ public class MoreleLoader implements ILoader {
 		Elements productDivs = document.getElementsByClass("owl-item");
 		
 		for (Element element : productDivs) {
-			products.add(new Product(element));
+			MoreleProduct moreleProduct = new MoreleProduct(element);
+			if (moreleProduct.scrap()) products.add(moreleProduct);
 		}
 		
 		return products;

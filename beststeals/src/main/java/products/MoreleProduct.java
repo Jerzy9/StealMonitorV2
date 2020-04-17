@@ -5,7 +5,7 @@ import org.jsoup.nodes.Element;
 import interfaces.IProduct;
 import scrapers.Scraper;
 
-public class MoreleAlarmCenowyProduct implements IProduct {
+public class MoreleProduct implements IProduct {
 	
 	private String siteLink;
 	private String siteName;
@@ -18,7 +18,7 @@ public class MoreleAlarmCenowyProduct implements IProduct {
 	private Scraper scraper;
 	
 
-	public MoreleAlarmCenowyProduct(Element el) {
+	public MoreleProduct(Element el) {
 		this.hotShot = el;
 		scraper = new Scraper();
 	}
