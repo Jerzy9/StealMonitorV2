@@ -1,13 +1,15 @@
 package test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import interfaces.IProduct;
-import products.MoreleAlarmCenowyProduct;
+import loaders.MoreleLoader;
+import products.MoreleProduct;
 import products.MoreleHotShotProduct;
 import products.XkomHotShotProduct;
 
@@ -15,7 +17,17 @@ public class LoadetTest {
 	
 	public static void main(String[] args) {
 		
-		new LoadetTest();
+		MoreleLoader ml = new MoreleLoader();
+		ArrayList<IProduct> products = new ArrayList<IProduct>();
+		try {
+			products = ml.getProducts("https://www.morele.net/alarmcenowy/");
+		} catch(IOException e) {
+			e.printStackTrace();
+		}
+		
+		for (IProduct p : products) {
+			System.out.println(p.getName());
+		}
 		
 	}
 	
@@ -23,7 +35,7 @@ public class LoadetTest {
 		Document doc = Jsoup.connect("https://www.morele.net/alarmcenowy/").get();	
 		Element el = doc.getElementsByClass("item").get(0);
 		
-		IProduct morele = new MoreleAlarmCenowyProduct(el);
+		IProduct morele = new MoreleProduct(el);
 		if(morele.scrap()) {
 			System.out.println("return true morele");
 		}
