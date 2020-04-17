@@ -8,7 +8,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import interfaces.IProduct;
-import loaders.MoreleLoader;
+import loaders.Loader;
 import products.MoreleProduct;
 import products.MoreleHotShotProduct;
 import products.XkomHotShotProduct;
@@ -17,7 +17,7 @@ public class LoadetTest {
 	
 	public static void main(String[] args) {
 		
-		MoreleLoader ml = new MoreleLoader();
+		Loader ml = new Loader();
 		ArrayList<IProduct> products = new ArrayList<IProduct>();
 		try {
 			products = ml.getProducts("https://www.morele.net/alarmcenowy/");

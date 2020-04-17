@@ -18,7 +18,7 @@ import products.MoreleProduct;
  * also it can be scaled for almost all promotion subpages on foregoing site 
  * */
 
-public class MoreleLoader implements ILoader {
+public class Loader implements ILoader {
 
 	public ArrayList<IProduct> getProducts(String url) throws IOException {
 		
