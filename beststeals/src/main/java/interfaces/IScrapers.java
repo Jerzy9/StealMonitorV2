@@ -1,19 +1,19 @@
 package interfaces;
 
-public interface IProduct {
-<<<<<<< HEAD
+import java.io.IOException;
 
-=======
+/*This is old version of Product*/
+
+public interface IScrapers {
 	
-	public boolean scrap();
+	public void scrap() throws IOException;
 	public String getSiteName(); 
 	public String getSiteLink();
 	public String getName();
 	public String getOldPrice();
 	public String getNewPrice();
-	public String getRemainingQuantity();
-	public String getLimitQuantity();
+	public String getRemaining();
+	public String getSold();
 	public String getImage();
 	
->>>>>>> refs/remotes/origin/konrad_branch
 }

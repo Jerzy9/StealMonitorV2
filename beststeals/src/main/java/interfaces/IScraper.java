@@ -2,16 +2,14 @@ package interfaces;
 
 import java.io.IOException;
 
+import org.jsoup.nodes.Element;
+
 public interface IScraper {
-	
-	public void scrap() throws IOException;
-	public String getSiteName(); 
-	public String getSiteLink();
-	public String getName();
-	public String getOldPrice();
-	public String getNewPrice();
-	public String getRemaining();
-	public String getSold();
-	public String getImage();
+
+	public String getStringByClass(Element el, String className, int index) throws IOException;
+	public String substringNum(String text, int startIndex, int endIndex) throws IOException;
+	public String getLinkFromAHref(Element el, int index) throws IOException;
+	public String getStringImageByClass(Element el, String className, int index) throws IOException;
+	public String addTwoNumbersInString(String n, String m) throws Exception; 
 	
 }

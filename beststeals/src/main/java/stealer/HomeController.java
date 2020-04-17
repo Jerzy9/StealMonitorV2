@@ -6,9 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import interfaces.IScraper;
-import scrapers.Morele;
-import scrapers.Xkom;
+import interfaces.IProduct;
+import interfaces.IScrapers;
+import products.old.Morele;
+import products.old.Xkom;
 
 @Controller
 public class HomeController {
@@ -16,7 +17,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public ModelAndView home() {
 	
-		ArrayList<IScraper> scrapers = new ArrayList<IScraper>();
+		ArrayList<IScrapers> scrapers = new ArrayList<IScrapers>();
 		scrapers.add(new Xkom());
 		scrapers.add(new Morele());
 		

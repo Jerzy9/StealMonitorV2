@@ -1,4 +1,4 @@
-package scrapers;
+package products.old;
 
 import java.io.IOException;
 
@@ -7,9 +7,12 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import interfaces.IScraper;
+import com.sun.org.apache.bcel.internal.generic.ReturnInstruction;
 
-public class Morele implements IScraper {
+import interfaces.IProduct;
+import interfaces.IScrapers;
+
+public class Morele implements IScrapers {
 	
 	private String siteName;
 	private String siteLink;
@@ -27,7 +30,7 @@ public class Morele implements IScraper {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void scrap() throws IOException {
 		Document doc = Jsoup.connect("https://www.morele.net").get();
     	Element hotShot = doc.getElementsByClass("home-sections-promotion").get(0);
