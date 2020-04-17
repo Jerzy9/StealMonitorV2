@@ -14,8 +14,9 @@ import products.MoreleProduct;
 
 
 /* 
- * This class is responsible for loading all desirable divs on morele.net page,
- * also it can be scaled for almost all promotion subpages on foregoing site 
+ * This class is responsible for loading all desirable elements on pages,
+ * and creating list of products that have been scanned
+ * 
  * */
 
 public class Loader implements ILoader {
@@ -27,8 +28,8 @@ public class Loader implements ILoader {
 		Elements productDivs = document.getElementsByClass(divClassName);
 		
 		for (Element element : productDivs) {
-			MoreleProduct moreleProduct = new MoreleProduct(element);
-			if (moreleProduct.scrap()) products.add(moreleProduct);
+			IProduct product = new MoreleProduct(element);
+			if (product.scrap()) products.add(product);
 		}
 		
 		return products;
