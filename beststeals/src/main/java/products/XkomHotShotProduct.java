@@ -36,7 +36,7 @@ public class XkomHotShotProduct implements IProduct {
 			this.remainingQuantity = scraper.getStringByClass(hotShot, "gs-quantity", 0);
 			this.limitQuantity = scraper.getStringByClass(hotShot, "gs-quantity", 0);
 			
-			img = null;
+			img = scraper.getStringImageByClass(hotShot, "img-responsive", 0);
 	    	
 			return true;
 		} catch (Exception e) {

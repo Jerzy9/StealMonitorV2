@@ -2,12 +2,14 @@ package scrapers;
 
 import java.io.IOException;
 
+import org.apache.tomcat.InstanceManager;
 import org.jsoup.nodes.Element;
 
 public class Scraper {
 
 	public String getStringByClass(Element el, String className, int index) throws IOException {
 		String str;
+		//ten blok try/catch jest do usuniêcia, jak tylko zaczniemy korzystañ z nowego systemu
 		try {
 			str = el.getElementsByClass(className).get(index).text();
 		} catch (Exception e) {
@@ -16,10 +18,6 @@ public class Scraper {
 		}
 		return str;
 	}
-	
-	public String substringNum(String text, int startIndex, int endIndex) throws IOException {
-    	return text.substring(startIndex, endIndex);
-    }
 	
 	public String getLinkFromAHref(Element el, int index) throws IOException {
 		String relHref;
@@ -34,6 +32,13 @@ public class Scraper {
 		return imgString;
 	}
 	
+	public String getImageStringByTag(Element el, int index) throws IOException {
+		String str;
+		Element image = el.getElementsByTag("img").get(index);
+    	str = image.absUrl("src");
+		return str;
+	}
+	
 	public String addTwoNumbersInString(String n, String m) {
 		int i = Integer.parseInt(n);
 		int j = Integer.parseInt(m);
@@ -41,4 +46,9 @@ public class Scraper {
 		String sum= ""+k;
 		return sum;
 	}
+	
+	public String substringNum(String text, int startIndex, int endIndex) throws IOException {
+    	return text.substring(startIndex, endIndex);
+    }
+	
 }

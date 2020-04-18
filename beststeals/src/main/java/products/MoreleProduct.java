@@ -1,5 +1,7 @@
 package products;
 
+import java.io.IOException;
+
 import org.jsoup.nodes.Element;
 
 import interfaces.IProduct;
@@ -37,13 +39,22 @@ public class MoreleProduct implements IProduct {
 			this.remainingQuantity = scraper.getStringByClass(hotShot, "was_quantity", 0);
 			this.limitQuantity =  scraper.getStringByClass(hotShot, "limit_quantity", 0);
 			
-			img = null;
+			this.img = scrapImageString(hotShot, 0);
 	    	
 			return true;
 		} catch (Exception e) {
 			System.out.println("Scrap Exception in " + siteName);
 			return false;
 		}
+	}
+	
+	public String scrapImageString(Element el, int index) throws IOException {
+		String str;
+		Element image = el.getElementsByClass("prod-img ").get(index);
+		System.out.println("ELLL: " + image);
+		str = image.toString();
+		str = scraper.substringNum(str, 52, str.length()-9);
+		return str;
 	}
 
 	public String getSiteName() {

@@ -39,8 +39,7 @@ public class MoreleHotShotProduct implements IProduct{
 			this.limitQuantity = scraper.substringNum(limitQuantity, 10, limitQuantity.length()-5);
 			
 			this.limitQuantity = scraper.addTwoNumbersInString(limitQuantity, remainingQuantity);
-			
-			img = null;
+			this.img = scraper.getImageStringByTag(hotShot, 0);
 	    	
 			return true;
 		} catch (Exception e) {
