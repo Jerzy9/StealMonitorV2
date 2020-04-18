@@ -23,7 +23,7 @@ import products.XkomHotShotProduct;
 
 public class Loader implements ILoader {
 
-	public ArrayList<IProduct> getProducts(String url, String divClassName, Class class) throws IOException {
+	public ArrayList<IProduct> getProducts(String url, String divClassName, Class<IProduct> class) throws IOException {
 		
 		ArrayList<IProduct> products = new ArrayList<IProduct>();
 		Document document = Jsoup.connect(url).get();
@@ -31,11 +31,11 @@ public class Loader implements ILoader {
 		IProduct product;
 		
 		for (Element element : productDivs) {
-			// do zmiany na beany
 			product = new class(element);
 			
 			if (product.scrap()) products.add(product);
 		}
+		
 		return products;
 	}
 	
