@@ -10,7 +10,9 @@ import org.jsoup.select.Elements;
 
 import interfaces.ILoader;
 import interfaces.IProduct;
+import products.MoreleHotShotProduct;
 import products.MoreleProduct;
+import products.XkomHotShotProduct;
 
 
 /* 
@@ -26,12 +28,17 @@ public class Loader implements ILoader {
 		ArrayList<IProduct> products = new ArrayList<IProduct>();
 		Document document = Jsoup.connect(url).get();
 		Elements productDivs = document.getElementsByClass(divClassName);
+		IProduct product;
 		
 		for (Element element : productDivs) {
-			IProduct product = new MoreleProduct(element);
+			// do zmiany na beany
+			if (url.equals("https://www.morele.net/alarmcenowy/")) product = new MoreleProduct(element);
+			if (url.equals("https://www.morele.net/")) product = new MoreleHotShotProduct(element);
+			else product = new XkomHotShotProduct(element);
+			
 			if (product.scrap()) products.add(product);
-		}
-		
+			System.out.println("image: " + product.getImage());
+		} 
 		return products;
 	}
 	
