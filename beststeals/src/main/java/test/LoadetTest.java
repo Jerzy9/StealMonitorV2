@@ -20,11 +20,11 @@ public class LoadetTest {
 		Loader ml = new Loader();
 		ArrayList<IProduct> products = new ArrayList<IProduct>();
 		try {
-			products = ml.getProducts("https://www.morele.net/alarmcenowy/", "owl-item");
-		} catch(IOException e) {
+			products = ml.getProducts("https://www.x-kom.pl/", "hot-shot");
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		for (IProduct p : products) {
 			System.out.println(p.getName());
 		}

@@ -5,6 +5,6 @@ import java.util.ArrayList;
 
 public interface ILoader {
 
-	public ArrayList<IProduct> getProducts(String url, String divClassName) throws IOException;
+	public ArrayList<IProduct> getProducts(String url, String divClassName) throws Exception;
 	
 }
