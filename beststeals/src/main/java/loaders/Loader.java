@@ -1,6 +1,7 @@
 package loaders;
 
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 
 import org.jsoup.Jsoup;
@@ -23,19 +24,26 @@ import products.XkomHotShotProduct;
 
 public class Loader implements ILoader {
 
-	public ArrayList<IProduct> getProducts(String url, String divClassName, Class<IProduct> class) throws IOException {
+	public ArrayList<IProduct> getProducts(String url, String divClassName) throws IOException {
 		
 		ArrayList<IProduct> products = new ArrayList<IProduct>();
 		Document document = Jsoup.connect(url).get();
 		Elements productDivs = document.getElementsByClass(divClassName);
 		IProduct product;
 		
-		for (Element element : productDivs) {
-			product = new class(element);
-			
-			if (product.scrap()) products.add(product);
-		}
 		
+		for (Element element : productDivs) {
+			try {
+			Class<?> c = Class.forName("products.MoreleProduct");
+			Constructor<?> cons = c.getConstructor(Element.class);
+			Object object = cons.newInstance(element);
+			product = (IProduct) object;
+			if (product.scrap()) products.add(product);
+			} catch (Exception e) {
+				//
+			}
+			
+		} 
 		return products;
 	}
 	
