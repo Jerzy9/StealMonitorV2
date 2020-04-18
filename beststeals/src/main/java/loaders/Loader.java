@@ -24,7 +24,7 @@ import products.XkomHotShotProduct;
 
 public class Loader implements ILoader {
 
-	public ArrayList<IProduct> getProducts(String url, String divClassName) throws Exception {
+	public ArrayList<IProduct> getProducts(String url, String divClassName, String classPath) throws Exception {
 		
 		ArrayList<IProduct> products = new ArrayList<IProduct>();
 		Document document = Jsoup.connect(url).get();
@@ -34,7 +34,7 @@ public class Loader implements ILoader {
 		
 		for (Element element : productDivs) {
 
-			Class<?> c = Class.forName("products.XkomHotShotProduct");
+			Class<?> c = Class.forName(classPath);
 			Constructor<?> cons = c.getConstructor(Element.class);
 			product = (IProduct) cons.newInstance(element);
 			
