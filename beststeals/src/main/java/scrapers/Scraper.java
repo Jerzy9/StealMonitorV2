@@ -4,9 +4,7 @@ import java.io.IOException;
 
 import org.jsoup.nodes.Element;
 
-import interfaces.IScraper;
-
-public class Scraper implements IScraper{
+public class Scraper {
 
 	public String getStringByClass(Element el, String className, int index) throws IOException {
 		String str;

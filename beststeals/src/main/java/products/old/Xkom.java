@@ -7,7 +7,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import interfaces.IProduct;
-import interfaces.IScraper;
 import interfaces.IScrapers;
 import scrapers.Scraper;
 

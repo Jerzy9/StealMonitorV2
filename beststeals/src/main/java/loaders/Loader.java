@@ -8,10 +8,9 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import interfaces.ILoader;
 import interfaces.IProduct;
 
-public class Loader implements ILoader {
+public class Loader {
 
 	public ArrayList<IProduct> getProducts(String url, String divClassName, String classPath) throws Exception {
 		
