@@ -1,6 +1,5 @@
 package loaders;
 
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 
@@ -11,16 +10,6 @@ import org.jsoup.select.Elements;
 
 import interfaces.ILoader;
 import interfaces.IProduct;
-import products.MoreleHotShotProduct;
-import products.MoreleProduct;
-import products.XkomHotShotProduct;
-
-
-/* 
- * This class is responsible for loading all desirable elements on pages,
- * and creating list of products that have been scanned
- * 
- * */
 
 public class Loader implements ILoader {
 

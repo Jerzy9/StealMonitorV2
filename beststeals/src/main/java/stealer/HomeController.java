@@ -20,24 +20,14 @@ public class HomeController {
 	@RequestMapping("/")
 	public ModelAndView home() {
 
-//		ArrayList<IScrapers> scrapers = new ArrayList<IScrapers>();
-//		scrapers.add(new Xkom());
-//		scrapers.add(new Morele());
+		ArrayList<IScrapers> scrapers = new ArrayList<IScrapers>();
+		scrapers.add(new Xkom());
+		scrapers.add(new Morele());
 		
-		
-		Loader loader = new Loader();
-		
-		ArrayList<IProduct> products = new ArrayList<IProduct>();
-		try {
-			products = loader.getProducts("https://www.morele.net/", "home-sections-promotion");
-		} catch (IOException e) {
-			//
-		}
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("main.jsp");
-		//mv.addObject("list", scrapers);
-		mv.addObject("list", products);
+		mv.addObject("list", scrapers);
 		
 		return mv;
 	}

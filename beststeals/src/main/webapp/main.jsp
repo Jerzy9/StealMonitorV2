@@ -65,7 +65,7 @@
 						    <input class="link" type="submit" value="Przejdz do strony" />
 						</form>
                         <div class ="counter">
-                            <p>pozostało ${item.getRemainingQuantity()} sztuk</p>
+                            <p>pozostało ${item.getRemaining()} sztuk</p>
                         </div>
                     </div>   
                 </div>
