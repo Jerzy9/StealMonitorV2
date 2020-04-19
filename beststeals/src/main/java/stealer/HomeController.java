@@ -6,9 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import interfaces.IScrapers;
-import products.old.Morele;
-import products.old.Xkom;
+import interfaces.IProduct;
+import mainloaders.MainLoader;
 
 @Controller
 public class HomeController {
@@ -16,14 +15,18 @@ public class HomeController {
 	@RequestMapping("/")
 	public ModelAndView home() {
 
-		ArrayList<IScrapers> scrapers = new ArrayList<IScrapers>();
-		scrapers.add(new Xkom());
-		scrapers.add(new Morele());
+		MainLoader ml = new MainLoader();
 		
+		ArrayList<IProduct> products = new ArrayList<IProduct>();
+		try {
+			products = ml.getAllProducts();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("main.jsp");
-		mv.addObject("list", scrapers);
+		mv.addObject("list", products);
 		
 		return mv;
 	}
