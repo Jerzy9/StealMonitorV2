@@ -32,21 +32,22 @@
 
 					<c:forEach items="${list}" var="item">
 	               
-	               		<div class="products">
 	                    
 	                    <div class="product">
-	                        <h3>Apple MacBook Air i5/8GB/128/UHD 617/Mac OS Space Gray</h3>
+	                        <h3>${item.getName()}</h3>
 	                        <div class="down">
 	                        <div class="left-side">
-	                            <img src="images/macbook.png">
+	                            <img src="${item.getImage()}">
 	                            <div class="prices">
-	                                <p class="new-price">4 599,00 zł</p>
-	                                <p class="old-price">5099,00 zł</p>
+	                                <p class="new-price">${item.getNewPrice()}</p>
+	                                <p class="old-price">${item.getOldPrice()}</p>
 	                            </div>
 	                        </div>
 	                        <div class="right-side">
-	                            <h2>x-kom</h2>
-	                            <button class="link">Przejdź do strony</button>
+	                            <h2>${item.getSiteName()}</h2>
+	                            <form target="_blank" action="${item.getSiteLink()}">
+						   			<input class="link" type="submit" value="Przejdz do strony" />
+								</form>
 	                        </div>
 	                        </div>
 	                    </div>
