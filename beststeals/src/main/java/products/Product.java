@@ -1,6 +1,6 @@
-package interfaces;
+package products;
 
-public interface IProduct {
+public interface Product {
 	public boolean scrap();
 	public String getSiteName(); 
 	public String getSiteLink();

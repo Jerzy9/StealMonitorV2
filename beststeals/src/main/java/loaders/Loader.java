@@ -8,23 +8,23 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import interfaces.IProduct;
+import products.Product;
 
 public class Loader {
 
-	public ArrayList<IProduct> getProducts(String url, String divClassName, String classPath) throws Exception {
+	public ArrayList<Product> getProducts(String url, String divClassName, String classPath) throws Exception {
 		
-		ArrayList<IProduct> products = new ArrayList<IProduct>();
+		ArrayList<Product> products = new ArrayList<Product>();
 		Document document = Jsoup.connect(url).get();
 		Elements productDivs = document.getElementsByClass(divClassName);
-		IProduct product;
+		Product product;
 		
 		
 		for (Element element : productDivs) {
 
 			Class<?> c = Class.forName(classPath);
 			Constructor<?> cons = c.getConstructor(Element.class);
-			product = (IProduct) cons.newInstance(element);
+			product = (Product) cons.newInstance(element);
 			
 			if (product.scrap()) products.add(product);
 		} 

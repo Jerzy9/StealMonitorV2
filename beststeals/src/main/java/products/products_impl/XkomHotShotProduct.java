@@ -1,11 +1,11 @@
-package products;
+package products.products_impl;
 
 import org.jsoup.nodes.Element;
 
-import interfaces.IProduct;
+import products.Product;
 import scrapers.Scraper;
 
-public class XkomHotShotProduct implements IProduct {
+public class XkomHotShotProduct implements Product {
 	private String siteLink;
 	private String siteName;
 	private String name;
@@ -45,9 +45,42 @@ public class XkomHotShotProduct implements IProduct {
 		}
 	}
 
+	public void setSiteLink(String siteLink) {
+		this.siteLink = siteLink;
+	}
+
+	public void setSiteName(String siteName) {
+		this.siteName = siteName;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setOldPrice(String oldPrice) {
+		this.oldPrice = oldPrice;
+	}
+
+	public void setNewPrice(String newPrice) {
+		this.newPrice = newPrice;
+	}
+
+	public void setRemainingQuantity(String remainingQuantity) {
+		this.remainingQuantity = remainingQuantity;
+	}
+
+	public void setLimitQuantity(String limitQuantity) {
+		this.limitQuantity = limitQuantity;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+	
 	public String getSiteName() {
 		return this.siteName;
 	}
+
 
 	public String getSiteLink() {
 		return this.siteLink;

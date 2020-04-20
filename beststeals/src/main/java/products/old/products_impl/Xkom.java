@@ -1,4 +1,4 @@
-package products.old;
+package products.old.products_impl;
 
 import java.io.IOException;
 
@@ -6,11 +6,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import interfaces.IProduct;
-import interfaces.IScrapers;
+import products.Product;
+import products.old.Scrapers;
 import scrapers.Scraper;
 
-public class Xkom implements IScrapers {
+public class Xkom implements Scrapers {
 	
 	private String siteLink;
 	private String siteName;

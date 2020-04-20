@@ -7,11 +7,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import interfaces.IProduct;
 import loaders.Loader;
-import products.MoreleProduct;
-import products.MoreleHotShotProduct;
-import products.XkomHotShotProduct;
+import products.Product;
+import products.products_impl.MoreleHotShotProduct;
+import products.products_impl.MoreleProduct;
+import products.products_impl.XkomHotShotProduct;
 
 public class LoadetTest {
 	
@@ -37,7 +37,7 @@ public class LoadetTest {
 		Document doc = Jsoup.connect("https://www.morele.net/alarmcenowy/").get();	
 		Element el = doc.getElementsByClass("item").get(0);
 		System.out.println(el);
-		IProduct morele = new MoreleProduct(el);
+		Product morele = new MoreleProduct(el);
 		if(morele.scrap()) {
 			System.out.println("return true morele");
 			checkVars(morele);
@@ -48,7 +48,7 @@ public class LoadetTest {
 		Document doc = Jsoup.connect("https://www.x-kom.pl").get();	
 		Element hotShot = doc.getElementById("hotShot");
 		
-		IProduct product = new XkomHotShotProduct(hotShot);
+		Product product = new XkomHotShotProduct(hotShot);
 		if(product.scrap()) {
 			System.out.println("return true x-kom");
 			checkVars(product);
@@ -59,14 +59,14 @@ public class LoadetTest {
 		Document doc = Jsoup.connect("https://www.morele.net").get();
     	Element hotShot = doc.getElementsByClass("home-sections-promotion").get(0);
 		System.out.println(hotShot);
-		IProduct product = new MoreleHotShotProduct(hotShot);
+		Product product = new MoreleHotShotProduct(hotShot);
 		if(product.scrap()) {
 			System.out.println("return true mainMorele");
 			checkVars(product);
 		}
 	}
 	
-	public void checkVars(IProduct product) {
+	public void checkVars(Product product) {
 		System.out.println(product.getName());
 		System.out.println(product.getNewPrice());
 		System.out.println(product.getOldPrice());

@@ -1,14 +1,11 @@
-package products;
-
-import java.io.IOException;
+package products.products_impl;
 
 import org.jsoup.nodes.Element;
 
-import interfaces.IProduct;
+import products.Product;
 import scrapers.Scraper;
 
-public class MoreleProduct implements IProduct {
-	
+public class MoreleHotShotProduct implements Product {
 	private String siteLink;
 	private String siteName;
 	private String name;
@@ -19,8 +16,7 @@ public class MoreleProduct implements IProduct {
 	private Element hotShot;
 	private Scraper scraper;
 	
-
-	public MoreleProduct(Element el) {
+	public MoreleHotShotProduct(Element el) {
 		this.hotShot = el;
 		scraper = new Scraper();
 	}
@@ -28,33 +24,28 @@ public class MoreleProduct implements IProduct {
 	public boolean scrap() {
 		try {
 			this.siteName = "morele.net";
+			
+			//We have to find a way to get this product's link!
 			this.siteLink = scraper.getLinkFromAHref(hotShot, 0);
 			
-			this.name = scraper.getStringByClass(hotShot, "product-slider-name", 0);
-		
-			this.oldPrice = scraper.getStringByClass(hotShot, "price-old", 0);
-			this.newPrice = scraper.getStringByClass(hotShot, "product-slider-price text-right", 0);
-			this.newPrice = scraper.substringNum(newPrice, newPrice.length()/2+1, newPrice.length());
+			this.name = scraper.getStringByClass(hotShot, "promo-box-name", 0);
 			
-			this.remainingQuantity = scraper.getStringByClass(hotShot, "was_quantity", 0);
-			this.limitQuantity =  scraper.getStringByClass(hotShot, "limit_quantity", 0);
+			this.oldPrice = scraper.getStringByClass(hotShot, "promo-box-old-price", 0);
+			this.newPrice = scraper.getStringByClass(hotShot, "promo-box-new-price", 0);
 			
-			this.img = scrapImageString(hotShot, 0);
+			this.remainingQuantity = scraper.getStringByClass(hotShot, "status-box-was", 0);
+			this.remainingQuantity = scraper.substringNum(remainingQuantity, 10, remainingQuantity.length()-5);
+			this.limitQuantity = scraper.getStringByClass(hotShot, "status-box-expired", 0);
+			this.limitQuantity = scraper.substringNum(limitQuantity, 10, limitQuantity.length()-5);
+			
+			this.limitQuantity = scraper.addTwoNumbersInString(limitQuantity, remainingQuantity);
+			this.img = scraper.getImageStringByTag(hotShot, 0);
 	    	
 			return true;
 		} catch (Exception e) {
 			System.out.println("Scrap Exception in " + siteName);
 			return false;
 		}
-	}
-	
-	public String scrapImageString(Element el, int index) throws IOException {
-		String str;
-		Element image = el.getElementsByClass("prod-img ").get(index);
-		System.out.println("ELLL: " + image);
-		str = image.toString();
-		str = scraper.substringNum(str, 52, str.length()-9);
-		return str;
 	}
 
 	public String getSiteName() {

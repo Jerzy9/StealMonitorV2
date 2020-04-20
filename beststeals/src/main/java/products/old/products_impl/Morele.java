@@ -1,4 +1,4 @@
-package products.old;
+package products.old.products_impl;
 
 import java.io.IOException;
 
@@ -9,10 +9,10 @@ import org.jsoup.select.Elements;
 
 import com.sun.org.apache.bcel.internal.generic.ReturnInstruction;
 
-import interfaces.IProduct;
-import interfaces.IScrapers;
+import products.Product;
+import products.old.Scrapers;
 
-public class Morele implements IScrapers {
+public class Morele implements Scrapers {
 	
 	private String siteName;
 	private String siteLink;

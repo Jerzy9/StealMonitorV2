@@ -1,10 +1,10 @@
-package interfaces;
+package products.old;
 
 import java.io.IOException;
 
 /*This is old version of Product*/
 
-public interface IScrapers {
+public interface Scrapers {
 	
 	public void scrap() throws IOException;
 	public String getSiteName(); 
