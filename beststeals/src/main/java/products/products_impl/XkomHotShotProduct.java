@@ -3,7 +3,7 @@ package products.products_impl;
 import org.jsoup.nodes.Element;
 
 import products.Product;
-import scrapers.Scraper;
+import scrapers.scrapers_impl.ScraperImpl;
 
 public class XkomHotShotProduct implements Product {
 	private String siteLink;
@@ -14,11 +14,11 @@ public class XkomHotShotProduct implements Product {
 	private String img;
 	
 	private Element hotShot;
-	private Scraper scraper;
+	private ScraperImpl scraper;
 	
 	public XkomHotShotProduct(Element el) {
 		this.hotShot = el;
-		scraper = new Scraper();
+		scraper = new ScraperImpl();
 	}
 	
 	public boolean scrap() {

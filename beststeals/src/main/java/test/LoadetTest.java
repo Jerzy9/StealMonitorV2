@@ -7,7 +7,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import loaders.Loader;
+import loaders.loaders_impl.LoaderImpl;
 import products.Product;
 import products.products_impl.MoreleHotShotProduct;
 import products.products_impl.MoreleProduct;

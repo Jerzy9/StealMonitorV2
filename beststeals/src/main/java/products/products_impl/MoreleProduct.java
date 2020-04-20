@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.jsoup.nodes.Element;
 
 import products.Product;
-import scrapers.Scraper;
+import scrapers.scrapers_impl.ScraperImpl;
 
 public class MoreleProduct implements Product {
 	
@@ -17,12 +17,12 @@ public class MoreleProduct implements Product {
 	private String img;
 	
 	private Element hotShot;
-	private Scraper scraper;
+	private ScraperImpl scraper;
 	
 
 	public MoreleProduct(Element el) {
 		this.hotShot = el;
-		scraper = new Scraper();
+		scraper = new ScraperImpl();
 	}
 	
 	public boolean scrap() {

@@ -8,7 +8,7 @@ import org.jsoup.nodes.Element;
 
 import products.Product;
 import products.old.Scrapers;
-import scrapers.Scraper;
+import scrapers.scrapers_impl.ScraperImpl;
 
 public class Xkom implements Scrapers {
 	
@@ -20,11 +20,11 @@ public class Xkom implements Scrapers {
 	private String img;
 	
 	private Element el;
-	private Scraper scraper;
+	private ScraperImpl scraper;
 	
 
 	public Xkom() {
-		scraper = new Scraper();
+		scraper = new ScraperImpl();
 		try {
 			scrap();
 		} catch (IOException e) {
