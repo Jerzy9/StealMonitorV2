@@ -1,14 +1,20 @@
 package test;
 
 import java.io.IOException;
+import java.sql.DriverManager;
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.plaf.metal.MetalIconFactory.FolderIcon16;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import interfaces.IProduct;
 import loaders.Loader;
+import mysql.ProductDAO;
 import products.MoreleProduct;
 import products.MoreleHotShotProduct;
 import products.XkomHotShotProduct;
@@ -78,13 +84,53 @@ public class LoadetTest {
 	}
 	
 	public LoadetTest() {
+		connectt();
 		try {	
-			//makeMorele();
-			makeMorele();
-			
 			
 		} catch (Exception e) {
-			System.out.println("Excepion");
+			System.out.println("Exceeeeepion");
 		}
+	}
+	
+	public void connectt() {
+		//Connection conn = null;
+//		try {
+//		    conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/test?" + "user=minty&password=greatsqldb");
+//
+//		} catch (SQLException ex) {
+//		    // handle any errors
+//		    System.out.println("SQLException: " + ex.getMessage());
+//		    System.out.println("SQLState: " + ex.getSQLState());
+//		    System.out.println("VendorError: " + ex.getErrorCode());
+//		}
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/steal_monitor?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+		dataSource.setUsername("root");
+		dataSource.setPassword("kapiszony123");
+		
+		ProductDAO dao = new ProductDAO(dataSource);
+		Element el = null;
+		try {
+			Document document = Jsoup.connect("https://www.morele.net/alarmcenowy/").get();
+			el = document.getElementsByClass("item").get(0);
+		} catch (Exception e) {
+			System.out.println("EXCEPTION TEST");
+			el = null;
+		}
+	
+		IProduct product = new MoreleProduct(el);
+		if(product.scrap()) {
+			checkVars(product);
+			System.out.println("trueeeeeeee");
+		}
+		//dao.save(product);
+		//product.setRemainingQuantity("69");
+		List<IProduct> list = dao.getProducts();
+		
+		for(int i = 0; i < list.size(); i ++) {
+			System.out.println(list.get(i).getRemainingQuantity());
+		}
+		
 	}
 }

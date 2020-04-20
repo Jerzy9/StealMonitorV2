@@ -2,6 +2,7 @@ package interfaces;
 
 public interface IProduct {
 	public boolean scrap();
+	public int getId();
 	public String getSiteName(); 
 	public String getSiteLink();
 	public String getName();
@@ -11,4 +12,5 @@ public interface IProduct {
 	public String getLimitQuantity();
 	public String getImage();
 	public String getCategory();
+	public void setRemainingQuantity(String remainingQuantity);
 }

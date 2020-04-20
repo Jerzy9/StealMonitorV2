@@ -6,12 +6,14 @@ import interfaces.IProduct;
 import scrapers.Scraper;
 
 public class MoreleHotShotProduct implements IProduct{
+	private int id;
 	private String siteLink;
 	private String siteName;
 	private String name;
 	private String oldPrice, newPrice;
 	private String remainingQuantity, limitQuantity;
 	private String img;
+	private String category;
 	
 	private Element hotShot;
 	private Scraper scraper;
@@ -82,6 +84,14 @@ public class MoreleHotShotProduct implements IProduct{
 
 	public String getCategory() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.category;
+	}
+	public int getId() {
+		return this.id;
+	}
+
+	public void setRemainingQuantity(String remainingQuantity) {
+		// TODO Auto-generated method stub
+		
 	}
 }

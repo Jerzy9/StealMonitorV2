@@ -9,12 +9,20 @@ import scrapers.Scraper;
 
 public class MoreleProduct implements IProduct {
 	
+	private int id;
 	private String siteLink;
+	public String getImg() {
+		return img;
+	}
+
+	
+
 	private String siteName;
 	private String name;
 	private String oldPrice, newPrice;
 	private String remainingQuantity, limitQuantity;
 	private String img;
+	private String category;
 	
 	private Element hotShot;
 	private Scraper scraper;
@@ -40,6 +48,7 @@ public class MoreleProduct implements IProduct {
 			this.limitQuantity =  scraper.getStringByClass(hotShot, "limit_quantity", 0);
 			
 			this.img = scrapImageString(hotShot, 0);
+			this.category = "null";
 	    	
 			return true;
 		} catch (Exception e) {
@@ -89,7 +98,46 @@ public class MoreleProduct implements IProduct {
 	}
 
 	public String getCategory() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.category;
+	}
+
+	public int getId() {
+		return this.id;
+	}
+	
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public void setSiteLink(String siteLink) {
+		this.siteLink = siteLink;
+	}
+
+	public void setSiteName(String siteName) {
+		this.siteName = siteName;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setOldPrice(String oldPrice) {
+		this.oldPrice = oldPrice;
+	}
+
+	public void setNewPrice(String newPrice) {
+		this.newPrice = newPrice;
+	}
+
+	public void setRemainingQuantity(String remainingQuantity) {
+		this.remainingQuantity = remainingQuantity;
+	}
+
+	public void setLimitQuantity(String limitQuantity) {
+		this.limitQuantity = limitQuantity;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 }

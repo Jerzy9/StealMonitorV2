@@ -3,9 +3,9 @@ package products;
 import org.jsoup.nodes.Element;
 
 import interfaces.IProduct;
-import scrapers.Scraper;
 
-public class XkomHotShotProduct implements IProduct {
+public class DAOProduct implements IProduct {
+	
 	private int id;
 	private String siteLink;
 	private String siteName;
@@ -15,36 +15,25 @@ public class XkomHotShotProduct implements IProduct {
 	private String img;
 	private String category;
 	
-	private Element hotShot;
-	private Scraper scraper;
-	
-	public XkomHotShotProduct(Element el) {
-		this.hotShot = el;
-		scraper = new Scraper();
+	public DAOProduct(int id, String siteLink, String siteName, String name, String oldPrice, String newPrice,
+			String remainingQuantity, String limitQuantity, String img, String category) {
+		super();
+		this.id = id;
+		this.siteLink = siteLink;
+		this.siteName = siteName;
+		this.name = name;
+		this.oldPrice = oldPrice;
+		this.newPrice = newPrice;
+		this.remainingQuantity = remainingQuantity;
+		this.limitQuantity = limitQuantity;
+		this.img = img;
+		this.category = category;
 	}
-	
+
+
 	public boolean scrap() {
-		try {
-			this.siteName = "x-kom.pl";
-			
-			//We have to find a way to get this product's link!
-			//this.siteLink = scraper.getLinkFromAHref(hotShot, 0);
-			
-			this.name = scraper.getStringByClass(hotShot, "product-name", 0);
-			
-			this.oldPrice = scraper.getStringByClass(hotShot, "old-price", 0);
-			this.newPrice = scraper.getStringByClass(hotShot, "new-price", 0);
-			
-			this.remainingQuantity = scraper.getStringByClass(hotShot, "gs-quantity", 0);
-			this.limitQuantity = scraper.getStringByClass(hotShot, "gs-quantity", 0);
-			
-			img = scraper.getStringImageByClass(hotShot, "img-responsive", 0);
-	    	
-			return true;
-		} catch (Exception e) {
-			System.out.println("Scrap Exception in " + siteName);
-			return false;
-		}
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	public String getSiteName() {
@@ -91,4 +80,5 @@ public class XkomHotShotProduct implements IProduct {
 		// TODO Auto-generated method stub
 		
 	}
+
 }
