@@ -1,4 +1,4 @@
-package stealer;
+package config;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("stealer")
+@ComponentScan({"controllers"})
 public class Config extends WebMvcConfigurerAdapter{
 	//	@Override
 	//	public void addResourceHandlers(ResourceHandlerRegistry registry){

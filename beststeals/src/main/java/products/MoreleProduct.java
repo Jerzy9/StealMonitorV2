@@ -88,4 +88,9 @@ public class MoreleProduct implements IProduct {
 	public String getImage() {
 		return this.img;
 	}
+
+	public String getCategory() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

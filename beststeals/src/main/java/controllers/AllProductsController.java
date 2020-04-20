@@ -1,4 +1,4 @@
-package stealer;
+package controllers;
 
 import java.util.ArrayList;
 
@@ -10,9 +10,8 @@ import interfaces.IProduct;
 import mainloaders.MainLoader;
 
 @Controller
-public class HomeController {
-
-	@RequestMapping("/")
+public class AllProductsController {
+	@RequestMapping("/all")
 	public ModelAndView home() {
 
 		MainLoader ml = new MainLoader();
@@ -25,10 +24,9 @@ public class HomeController {
 		}
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("main.jsp");
+		mv.setViewName("all_products.jsp");
 		mv.addObject("list", products);
 		
 		return mv;
 	}
-	
 }

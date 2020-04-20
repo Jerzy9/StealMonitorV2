@@ -10,4 +10,5 @@ public interface IProduct {
 	public String getRemainingQuantity();
 	public String getLimitQuantity();
 	public String getImage();
+	public String getCategory();
 }
