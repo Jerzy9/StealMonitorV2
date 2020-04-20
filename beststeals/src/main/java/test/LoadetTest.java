@@ -62,8 +62,9 @@ public class LoadetTest {
 			Product product = new MoreleProduct(el);
 			if(product.scrap()) {
 				checkVars(product);
+				System.out.println("trueeeeeeee");
 			}
-			int result = dao.save(product);
+			dao.save(product);
 			
 	}
 	
