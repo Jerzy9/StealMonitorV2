@@ -9,6 +9,7 @@ public class MainLoader {
 
 	Loader loader = new Loader();
 	ArrayList<IProduct> allProducts = new ArrayList<IProduct>();
+	ArrayList<IProduct> hotProducts = new ArrayList<IProduct>();
 	
 	ArrayList<String> urls = new ArrayList<String>();
 	ArrayList<String> classNames = new ArrayList<String>();
@@ -26,6 +27,23 @@ public class MainLoader {
 		
 		return allProducts;
 	}
+	
+	public ArrayList<IProduct> getHotProducts() throws Exception {
+		importInfo();
+		
+		ArrayList<IProduct> loaderProducts = new ArrayList<IProduct>();
+		
+		for (int i = 0; i < 2; i++) {
+			loaderProducts = loader.getProducts(urls.get(i), classNames.get(i), paths.get(i));
+			hotProducts.addAll(loaderProducts);
+		}
+		
+		return hotProducts;
+	}
+	
+	
+	
+	
 	
 	private void importInfo() {
 		// xkom hotshot

@@ -15,8 +15,8 @@
 	
    			<nav>
                 <ul>
-                    <a href="/"><li>Glowne promocje</li></a>
-                    <a href="/all"><li>Wszystkie promocje</li></a>
+                    <a href="/beststeals"><li>Glowne promocje</li></a>
+                    <a href="/beststeals/all"><li>Wszystkie promocje</li></a>
                     <a href="xd"><li>Dolacz do Subskrybcji</li></a>
                     <a href="xd"><li>Inne</li></a>
                 </ul>

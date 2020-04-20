@@ -40,7 +40,8 @@ public class MoreleProduct implements IProduct {
 			this.limitQuantity =  scraper.getStringByClass(hotShot, "limit_quantity", 0);
 			
 			this.img = scrapImageString(hotShot, 0);
-	    	
+			
+			if (!siteLink.substring(8,22).equals("www.morele.net")) return false;
 			return true;
 		} catch (Exception e) {
 			System.out.println("Scrap Exception in " + siteName);
