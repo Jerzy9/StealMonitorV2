@@ -107,7 +107,7 @@ public class LoadetTest {
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/steal_monitor?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 		dataSource.setUsername("root");
-		dataSource.setPassword("kapiszony123");
+		dataSource.setPassword("TUTAJ WPISZ SWOJE HAS£O");
 		
 		ProductDAO dao = new ProductDAO(dataSource);
 		Element el = null;
