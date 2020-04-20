@@ -1,4 +1,4 @@
-package stealer;
+package configs;
 
 import java.util.ArrayList;
 
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import products.old.Scrapers;
-import products.old.products_impl.Morele;
-import products.old.products_impl.Xkom;
+import products.old.scrapers_impl.Morele;
+import products.old.scrapers_impl.Xkom;
 
 @Controller
 public class HomeController {

@@ -1,4 +1,4 @@
-package stealer;
+package configs;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

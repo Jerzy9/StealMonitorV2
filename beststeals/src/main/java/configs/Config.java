@@ -1,4 +1,4 @@
-package stealer;
+package configs;
 
 import java.util.concurrent.TimeUnit;
 

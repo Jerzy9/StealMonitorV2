@@ -1,4 +1,4 @@
-package products.old.products_impl;
+package products.old.scrapers_impl;
 
 import java.io.IOException;
 
