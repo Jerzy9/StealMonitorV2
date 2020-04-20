@@ -12,6 +12,7 @@ public class MoreleHotShotProduct implements Product {
 	private String oldPrice, newPrice;
 	private String remainingQuantity, limitQuantity;
 	private String img;
+	private String category;
 	
 	private Element hotShot;
 	private ScraperImpl scraper;
@@ -40,6 +41,7 @@ public class MoreleHotShotProduct implements Product {
 			
 			this.limitQuantity = scraper.addTwoNumbersInString(limitQuantity, remainingQuantity);
 			this.img = scraper.getImageStringByTag(hotShot, 0);
+			this.category = "null";
 	    	
 			return true;
 		} catch (Exception e) {
@@ -78,5 +80,9 @@ public class MoreleHotShotProduct implements Product {
 
 	public String getImage() {
 		return this.img;
+	}
+
+	public String getCategory() {
+		return this.category;
 	}
 }

@@ -1,19 +1,27 @@
 package test;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import loaders.loaders_impl.LoaderImpl;
 import products.Product;
+import products.DAO.ProductDAO;
+import products.DAO.DAO_impl.ProductDAOImpl;
 import products.products_impl.MoreleHotShotProduct;
 import products.products_impl.MoreleProduct;
 import products.products_impl.XkomHotShotProduct;
 
 public class LoadetTest {
+	
+	private DriverManagerDataSource dataSource;
+	private ProductDAO dao;
 	
 	public static void main(String[] args) {
 		
@@ -31,6 +39,32 @@ public class LoadetTest {
 		
 		new LoadetTest();
 		
+	}
+	
+	public void connectt() {
+
+			dataSource = new DriverManagerDataSource();
+			dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+			dataSource.setUrl("jdbc:mysql://localhost:3306/steal_monitor");
+			dataSource.setUsername("root");
+			dataSource.setPassword("kapiszony123");
+			
+			dao = new ProductDAOImpl(dataSource);
+			Element el = null;
+			try {
+				Document document = Jsoup.connect("https://www.morele.net/alarmcenowy/").get();
+				el = document.getElementsByClass("item").get(0);
+			} catch (Exception e) {
+				System.out.println("EXCEPTION TEST");
+				el = null;
+			}
+		
+			Product product = new MoreleProduct(el);
+			if(product.scrap()) {
+				checkVars(product);
+			}
+			int result = dao.save(product);
+			
 	}
 	
 	public void makeMorele() throws IOException {
@@ -80,7 +114,7 @@ public class LoadetTest {
 	public LoadetTest() {
 		try {	
 			//makeMorele();
-			makeMorele();
+			connectt();
 			
 			
 		} catch (Exception e) {

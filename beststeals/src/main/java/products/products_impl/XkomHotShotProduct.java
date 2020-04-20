@@ -12,6 +12,7 @@ public class XkomHotShotProduct implements Product {
 	private String oldPrice, newPrice;
 	private String remainingQuantity, limitQuantity;
 	private String img;
+	private String category;
 	
 	private Element hotShot;
 	private ScraperImpl scraper;
@@ -37,6 +38,7 @@ public class XkomHotShotProduct implements Product {
 			this.limitQuantity = scraper.getStringByClass(hotShot, "gs-quantity", 0);
 			
 			img = scraper.getStringImageByClass(hotShot, "img-responsive", 0);
+			category = "null";
 	    	
 			return true;
 		} catch (Exception e) {
@@ -108,5 +110,9 @@ public class XkomHotShotProduct implements Product {
 
 	public String getImage() {
 		return this.img;
+	}
+
+	public String getCategory() {
+		return category;
 	}
 }
