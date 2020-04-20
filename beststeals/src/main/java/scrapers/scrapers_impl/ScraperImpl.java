@@ -5,7 +5,9 @@ import java.io.IOException;
 import org.apache.tomcat.InstanceManager;
 import org.jsoup.nodes.Element;
 
-public class ScraperImpl {
+import scrapers.Scraper;
+
+public class ScraperImpl implements Scraper{
 
 	public String getStringByClass(Element el, String className, int index) throws IOException {
 		String str;
@@ -39,7 +41,7 @@ public class ScraperImpl {
 		return str;
 	}
 	
-	public String addTwoNumbersInString(String n, String m) {
+	public String addTwoNumbersInString(String n, String m) throws Exception{
 		int i = Integer.parseInt(n);
 		int j = Integer.parseInt(m);
 		int k = i+j;
@@ -47,7 +49,7 @@ public class ScraperImpl {
 		return sum;
 	}
 	
-	public String substringNum(String text, int startIndex, int endIndex) throws IOException {
+	public String substringNum(String text, int startIndex, int endIndex) throws Exception {
     	return text.substring(startIndex, endIndex);
     }
 	

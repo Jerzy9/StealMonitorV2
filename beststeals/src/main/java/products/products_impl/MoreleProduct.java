@@ -48,7 +48,7 @@ public class MoreleProduct implements Product {
 		}
 	}
 	
-	public String scrapImageString(Element el, int index) throws IOException {
+	public String scrapImageString(Element el, int index) throws Exception {
 		String str;
 		Element image = el.getElementsByClass("prod-img ").get(index);
 		System.out.println("ELLL: " + image);
