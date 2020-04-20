@@ -6,7 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Home page new</title>
-<link href="<c:url value="/resources/css/all.css"/>" rel="stylesheet">
+<link href="<c:url value="assets/style.css"/>" rel="stylesheet">
+<link href="<c:url value="assets/all.css"/>" rel="stylesheet">
 
 </head>
 <body>

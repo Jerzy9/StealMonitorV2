@@ -51,7 +51,6 @@ public class MoreleProduct implements IProduct {
 	public String scrapImageString(Element el, int index) throws IOException {
 		String str;
 		Element image = el.getElementsByClass("prod-img ").get(index);
-		System.out.println("ELLL: " + image);
 		str = image.toString();
 		str = scraper.substringNum(str, 52, str.length()-9);
 		return str;

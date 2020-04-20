@@ -13,22 +13,23 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 @ComponentScan({"controllers"})
 public class Config extends WebMvcConfigurerAdapter{
-	//	@Override
-	//	public void addResourceHandlers(ResourceHandlerRegistry registry){
-	//	    registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-	//	}
-	//	
-	@Override
-	   public void addResourceHandlers(ResourceHandlerRegistry registry) {
-
-	      	// Register resource handler for CSS and JS, sciezka 
-			//"D:/statics/" jest zapasowa, bez niej tez dziala, ale niech zostanie
-	      registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/statics/", "D:/statics/")
-	            .setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
+	
+		@Override
+		public void addResourceHandlers(ResourceHandlerRegistry registry){
+		    registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
+		}
 		
-
-	      // Register resource handler for images
-	      registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/images/")
-	            .setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
-	   }
+//	@Override
+//	   public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//
+//	      	// Register resource handler for CSS and JS, sciezka 
+//			//"D:/statics/" jest zapasowa, bez niej tez dziala, ale niech zostanie
+//	      registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/statics/", "D:/statics/")
+//	            .setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
+//		
+//
+//	      // Register resource handler for images
+//	      registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/images/")
+//	            .setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
+//	   }
 }
