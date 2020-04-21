@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 import interfaces.IProduct;
-import products.DAOProduct;
+import products.DataBaseProduct;
 
 public class ProductDAO {
 	private JdbcTemplate jdbcTemplate;
@@ -80,7 +80,7 @@ public class ProductDAO {
 				String img_string = rs.getString("img_string");
 				String category = rs.getString("category");
 				
-				return new DAOProduct(id, site_link, site_name, name, old_price, new_price, remaining_quantity, limit_quantity, img_string, category);
+				return new DataBaseProduct(id, site_link, site_name, name, old_price, new_price, remaining_quantity, limit_quantity, img_string, category);
 			}
 		};
 		

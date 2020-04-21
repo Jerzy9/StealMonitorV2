@@ -4,7 +4,7 @@ import org.jsoup.nodes.Element;
 
 import interfaces.IProduct;
 
-public class DAOProduct implements IProduct {
+public class DataBaseProduct implements IProduct {
 	
 	private int id;
 	private String siteLink;
@@ -15,7 +15,7 @@ public class DAOProduct implements IProduct {
 	private String img;
 	private String category;
 	
-	public DAOProduct(int id, String siteLink, String siteName, String name, String oldPrice, String newPrice,
+	public DataBaseProduct(int id, String siteLink, String siteName, String name, String oldPrice, String newPrice,
 			String remainingQuantity, String limitQuantity, String img, String category) {
 		super();
 		this.id = id;

@@ -93,21 +93,12 @@ public class LoadetTest {
 	}
 	
 	public void connectt() {
-		//Connection conn = null;
-//		try {
-//		    conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/test?" + "user=minty&password=greatsqldb");
-//
-//		} catch (SQLException ex) {
-//		    // handle any errors
-//		    System.out.println("SQLException: " + ex.getMessage());
-//		    System.out.println("SQLState: " + ex.getSQLState());
-//		    System.out.println("VendorError: " + ex.getErrorCode());
-//		}
+
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/steal_monitor?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 		dataSource.setUsername("root");
-		dataSource.setPassword("TUTAJ WPISZ SWOJE HAS£O");
+		dataSource.setPassword("kapiszony123");
 		
 		ProductDAO dao = new ProductDAO(dataSource);
 		Element el = null;
