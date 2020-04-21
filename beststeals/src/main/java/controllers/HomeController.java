@@ -19,7 +19,7 @@ public class HomeController {
 		
 		ArrayList<IProduct> products = new ArrayList<IProduct>();
 		try {
-			products = ml.getAllProducts();
+			products = ml.getHotProducts();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

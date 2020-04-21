@@ -27,8 +27,7 @@ public class XkomHotShotProduct implements IProduct {
 		try {
 			this.siteName = "x-kom.pl";
 			
-			//We have to find a way to get this product's link!
-			//this.siteLink = scraper.getLinkFromAHref(hotShot, 0);
+			this.siteLink = "https://www.x-kom.pl/#hotShot";
 			
 			this.name = scraper.getStringByClass(hotShot, "product-name", 0);
 			
