@@ -3,20 +3,16 @@ package products;
 import java.io.IOException;
 
 import org.jsoup.nodes.Element;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import interfaces.IProduct;
-import scrapers.Scraper;
 
+//@Component
 public class MoreleProduct implements IProduct {
 	
 	private int id;
 	private String siteLink;
-	public String getImg() {
-		return img;
-	}
-
-	
-
 	private String siteName;
 	private String name;
 	private String oldPrice, newPrice;
@@ -25,12 +21,12 @@ public class MoreleProduct implements IProduct {
 	private String category;
 	
 	private Element hotShot;
-	private Scraper scraper;
 	
-
+	//@Autowired
+	private Scraper scraper = new Scraper();
+	
 	public MoreleProduct(Element el) {
 		this.hotShot = el;
-		scraper = new Scraper();
 	}
 	
 	public boolean scrap() {
@@ -98,7 +94,7 @@ public class MoreleProduct implements IProduct {
 	public String getImage() {
 		return this.img;
 	}
-
+	
 	public String getCategory() {
 		return this.category;
 	}
@@ -110,7 +106,11 @@ public class MoreleProduct implements IProduct {
 	public void setImg(String img) {
 		this.img = img;
 	}
-
+	
+	public String getImg() {												// ????? two same getters
+		return img;
+	}
+	
 	public void setSiteLink(String siteLink) {
 		this.siteLink = siteLink;
 	}
@@ -141,5 +141,13 @@ public class MoreleProduct implements IProduct {
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public Scraper getScraper() {
+		return scraper;
+	}
+
+	public void setScraper(Scraper scraper) {
+		this.scraper = scraper;
 	}
 }

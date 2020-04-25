@@ -3,7 +3,6 @@ package products;
 import org.jsoup.nodes.Element;
 
 import interfaces.IProduct;
-import scrapers.Scraper;
 
 public class XkomHotShotProduct implements IProduct {
 	private int id;

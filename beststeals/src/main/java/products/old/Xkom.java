@@ -8,7 +8,7 @@ import org.jsoup.nodes.Element;
 
 import interfaces.IProduct;
 import interfaces.IScrapers;
-import scrapers.Scraper;
+import products.Scraper;
 
 public class Xkom implements IScrapers {
 	

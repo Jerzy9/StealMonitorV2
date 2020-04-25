@@ -1,21 +1,18 @@
-package scrapers;
+package products;
 
 import java.io.IOException;
 
 import org.apache.tomcat.InstanceManager;
 import org.jsoup.nodes.Element;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
 
+//@Component
 public class Scraper {
 
 	public String getStringByClass(Element el, String className, int index) throws IOException {
 		String str;
-		//ten blok try/catch jest do usuniêcia, jak tylko zaczniemy korzystañ z nowego systemu
-		try {
-			str = el.getElementsByClass(className).get(index).text();
-		} catch (Exception e) {
-			System.out.println("null in " + className);
-			str = "null";
-		}
+		str = el.getElementsByClass(className).get(index).text();
 		return str;
 	}
 	

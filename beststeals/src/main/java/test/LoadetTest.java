@@ -10,31 +10,24 @@ import javax.swing.plaf.metal.MetalIconFactory.FolderIcon16;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import config.AppConfig;
 import interfaces.IProduct;
 import loaders.Loader;
 import mysql.ProductDAO;
-import products.MoreleProduct;
 import products.MoreleHotShotProduct;
+import products.MoreleProduct;
+import products.Scraper;
 import products.XkomHotShotProduct;
 
 public class LoadetTest {
 	
+	
+	
 	public static void main(String[] args) {
-		
-//		Loader ml = new Loader();
-//		ArrayList<IProduct> products = new ArrayList<IProduct>();
-//		try {
-//			products = ml.getProducts("https://www.x-kom.pl/", "hot-shot", "products.XkomHotShotProduct");
-//		} catch(Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		for (IProduct p : products) {
-//			System.out.println(p.getName());
-//		}
-		
 		new LoadetTest();
 		
 	}
@@ -84,12 +77,19 @@ public class LoadetTest {
 	}
 	
 	public LoadetTest() {
-		connectt();
-		try {	
-			
-		} catch (Exception e) {
-			System.out.println("Exceeeeepion");
-		}
+		//connectt();
+//		try {	
+//			
+//		} catch (Exception e) {
+//			System.out.println("Exceeeeepion");
+//		}
+		ApplicationContext factory = new AnnotationConfigApplicationContext(AppConfig.class);
+//		MoreleProduct mr = factory.getBean(MoreleProduct.class);
+//		//mr.scrap();
+//		checkVars(mr);
+		Scraper scraper = factory.getBean(Scraper.class);
+		String num = scraper.addTwoNumbersInString("3", "3");
+		System.out.println(num);
 	}
 	
 	public void connectt() {
@@ -122,6 +122,5 @@ public class LoadetTest {
 		for(int i = 0; i < list.size(); i ++) {
 			System.out.println(list.get(i).getRemainingQuantity());
 		}
-		
 	}
 }
