@@ -7,10 +7,13 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.stereotype.Component;
 
+import interfaces.ILoader;
 import interfaces.IProduct;
 
-public class Loader {
+@Component
+public class Loader implements ILoader {
 
 	public ArrayList<IProduct> getProducts(String url, String divClassName, String classPath) throws Exception {
 		

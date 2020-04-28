@@ -1,11 +1,11 @@
 package interfaces;
 
-import java.awt.List;
+import java.util.List;
 
 public interface IProductDAO {
 	public int save(IProduct product);
 	public int update(IProduct product);
 	public IProduct get(int id);
 	public int delete(int id);
-	public List getProducts();
+	public List<IProduct> getProducts();
 }

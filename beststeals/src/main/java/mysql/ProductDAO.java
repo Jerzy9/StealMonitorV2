@@ -8,11 +8,14 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import interfaces.IProduct;
+import interfaces.IProductDAO;
 import products.DataBaseProduct;
 
-public class ProductDAO {
+@Component
+public class ProductDAO implements IProductDAO {
 	private JdbcTemplate jdbcTemplate;
 	
 	public ProductDAO(DataSource dataSource) {
@@ -23,7 +26,8 @@ public class ProductDAO {
 		String sql = "INSERT INTO products (name, site_name, site_link, old_price, new_price, "
 					+ "remaining_quantity, limit_quantity, img_string, category) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		return jdbcTemplate.update(sql, p.getName(), p.getSiteName(), p.getSiteLink(), p.getOldPrice(), 
-										p.getNewPrice(), p.getRemainingQuantity(), p.getLimitQuantity(), p.getImage(), p.getCategory());
+										p.getNewPrice(), p.getRemainingQuantity(), p.getLimitQuantity(), p.getImage(), "blank category");
+		// blank category because it cannot be null
 	}
 
 	public int update(IProduct product) {
@@ -83,7 +87,7 @@ public class ProductDAO {
 				return new DataBaseProduct(id, site_link, site_name, name, old_price, new_price, remaining_quantity, limit_quantity, img_string, category);
 			}
 		};
-		
+		 
 		return jdbcTemplate.query(sql, rowMapper);
 	}
 }

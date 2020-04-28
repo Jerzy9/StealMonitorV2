@@ -4,9 +4,13 @@ import java.io.IOException;
 
 import org.jsoup.nodes.Element;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
+import config.AppConfig;
 import interfaces.IProduct;
+import scrapers.Scraper;
 
 //@Component
 public class MoreleProduct implements IProduct {
@@ -22,11 +26,12 @@ public class MoreleProduct implements IProduct {
 	
 	private Element hotShot;
 	
-	//@Autowired
-	private Scraper scraper = new Scraper();
+	private Scraper scraper;
 	
 	public MoreleProduct(Element el) {
 		this.hotShot = el;
+		ApplicationContext factory = new AnnotationConfigApplicationContext(AppConfig.class);
+		scraper = factory.getBean(Scraper.class);
 	}
 	
 	public boolean scrap() {

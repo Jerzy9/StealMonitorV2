@@ -2,12 +2,20 @@ package mainloaders;
 
 import java.util.ArrayList;
 
-import interfaces.IProduct;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import interfaces.ILoader;
+import interfaces.IMainLoader;
+import interfaces.IProduct; 
 import loaders.Loader;
 
-public class MainLoader {
+@Component
+public class MainLoader implements IMainLoader {
 
-	Loader loader = new Loader();
+	@Autowired
+	ILoader loader;;
+	
 	ArrayList<IProduct> allProducts = new ArrayList<IProduct>();
 	ArrayList<IProduct> hotProducts = new ArrayList<IProduct>();
 	
@@ -40,10 +48,6 @@ public class MainLoader {
 		
 		return hotProducts;
 	}
-	
-	
-	
-	
 	
 	private void importInfo() {
 		// xkom hotshot

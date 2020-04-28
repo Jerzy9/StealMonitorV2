@@ -1,4 +1,4 @@
-package products;
+package scrapers;
 
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import org.jsoup.nodes.Element;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class Scraper {
 
 	public String getStringByClass(Element el, String className, int index) throws IOException {

@@ -1,8 +1,12 @@
 package products;
 
 import org.jsoup.nodes.Element;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import config.AppConfig;
 import interfaces.IProduct;
+import scrapers.Scraper;
 
 public class MoreleHotShotProduct implements IProduct{
 	private int id;
@@ -19,7 +23,8 @@ public class MoreleHotShotProduct implements IProduct{
 	
 	public MoreleHotShotProduct(Element el) {
 		this.hotShot = el;
-		scraper = new Scraper();
+		ApplicationContext factory = new AnnotationConfigApplicationContext(AppConfig.class);
+		scraper = factory.getBean(Scraper.class);
 	}
 	
 	public boolean scrap() {

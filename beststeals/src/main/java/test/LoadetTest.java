@@ -20,12 +20,11 @@ import loaders.Loader;
 import mysql.ProductDAO;
 import products.MoreleHotShotProduct;
 import products.MoreleProduct;
-import products.Scraper;
 import products.XkomHotShotProduct;
+import runners.Runner;
+import scrapers.Scraper;
 
 public class LoadetTest {
-	
-	
 	
 	public static void main(String[] args) {
 		new LoadetTest();
@@ -83,13 +82,14 @@ public class LoadetTest {
 //		} catch (Exception e) {
 //			System.out.println("Exceeeeepion");
 //		}
-		ApplicationContext factory = new AnnotationConfigApplicationContext(AppConfig.class);
+		//ApplicationContext factory = new AnnotationConfigApplicationContext(AppConfig.class);
+		Runner runner = new Runner();
+		runner.loadAllProductsToDataBase();
 //		MoreleProduct mr = factory.getBean(MoreleProduct.class);
 //		//mr.scrap();
 //		checkVars(mr);
-		Scraper scraper = factory.getBean(Scraper.class);
-		String num = scraper.addTwoNumbersInString("3", "3");
-		System.out.println(num);
+		//Runner runner = new Runner();
+		System.out.println("works");
 	}
 	
 	public void connectt() {

@@ -1,8 +1,12 @@
 package products;
 
 import org.jsoup.nodes.Element;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import config.AppConfig;
 import interfaces.IProduct;
+import scrapers.Scraper;
 
 public class XkomHotShotProduct implements IProduct {
 	private int id;
@@ -15,11 +19,13 @@ public class XkomHotShotProduct implements IProduct {
 	private String category;
 	
 	private Element hotShot;
+	
 	private Scraper scraper;
 	
 	public XkomHotShotProduct(Element el) {
 		this.hotShot = el;
-		scraper = new Scraper();
+		ApplicationContext factory = new AnnotationConfigApplicationContext(AppConfig.class);
+		scraper = factory.getBean(Scraper.class);
 	}
 	
 	public boolean scrap() {
