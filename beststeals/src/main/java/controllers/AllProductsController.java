@@ -1,24 +1,34 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import config.AppConfig;
 import interfaces.IProduct;
+import interfaces.IProductDAO;
 import mainloaders.MainLoader;
+import mysql.ProductDAO;
 
 @Controller
 public class AllProductsController {
+	
+	ApplicationContext factory =  new AnnotationConfigApplicationContext(AppConfig.class);
+	IProductDAO productDAO = factory.getBean(ProductDAO.class);
+	
 	@RequestMapping("/all")
 	public ModelAndView home() {
 
 		MainLoader ml = new MainLoader();
 		
-		ArrayList<IProduct> products = new ArrayList<IProduct>();
+		List<IProduct> products = new ArrayList<IProduct>();
 		try {
-			products = ml.getAllProducts();
+			products = productDAO.getProducts();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

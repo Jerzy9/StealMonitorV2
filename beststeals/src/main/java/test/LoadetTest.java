@@ -84,7 +84,9 @@ public class LoadetTest {
 //		}
 		//ApplicationContext factory = new AnnotationConfigApplicationContext(AppConfig.class);
 		Runner runner = new Runner();
-		runner.loadAllProductsToDataBase();
+		runner.loadHotProductsToDB();
+		runner.loadAllProductsToDB();
+		
 //		MoreleProduct mr = factory.getBean(MoreleProduct.class);
 //		//mr.scrap();
 //		checkVars(mr);

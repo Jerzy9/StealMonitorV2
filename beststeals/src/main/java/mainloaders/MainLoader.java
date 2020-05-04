@@ -14,7 +14,7 @@ import loaders.Loader;
 public class MainLoader implements IMainLoader {
 
 	@Autowired
-	ILoader loader;;
+	ILoader loader;
 	
 	ArrayList<IProduct> allProducts = new ArrayList<IProduct>();
 	ArrayList<IProduct> hotProducts = new ArrayList<IProduct>();

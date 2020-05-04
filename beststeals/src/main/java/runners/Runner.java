@@ -17,12 +17,12 @@ import mysql.ProductDAO;
 public class Runner {
 	
 	ApplicationContext factory;
-	
-	IDataBaseConnection connection;
+
 	IProductDAO productDAO;
 	IMainLoader mainLoader;
 	
 	ArrayList<IProduct> allProducts;
+	ArrayList<IProduct> hotProducts;
 	
 	public Runner() {
 		
@@ -32,7 +32,7 @@ public class Runner {
 		
 	}
 	
-	public void loadAllProductsToDataBase() {
+	public void loadAllProductsToDB() {
 		try {
 			allProducts = mainLoader.getAllProducts();
 		} catch (Exception e) {
@@ -44,5 +44,21 @@ public class Runner {
 			// it gives "blank category" to data base instead instead of normal category, it will change in the future
 		}
 	}
+	
+	public void loadHotProductsToDB() {
+		try {
+			hotProducts = mainLoader.getHotProducts();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("TEMP ERROR");
+		}
+		for (IProduct product : hotProducts) {
+			productDAO.saveHot(product);
+			// it gives "blank category" to data base instead instead of normal category, it will change in the future
+		}
+	}
+	
+	
 
 }

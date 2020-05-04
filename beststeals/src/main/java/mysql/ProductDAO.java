@@ -29,6 +29,14 @@ public class ProductDAO implements IProductDAO {
 										p.getNewPrice(), p.getRemainingQuantity(), p.getLimitQuantity(), p.getImage(), "blank category");
 		// blank category because it cannot be null
 	}
+	
+	public int saveHot(IProduct p) {
+		String sql = "INSERT INTO hot_products (name, site_name, site_link, old_price, new_price, "
+					+ "remaining_quantity, limit_quantity, img_string, category) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		return jdbcTemplate.update(sql, p.getName(), p.getSiteName(), p.getSiteLink(), p.getOldPrice(), 
+										p.getNewPrice(), p.getRemainingQuantity(), p.getLimitQuantity(), p.getImage(), "blank category");
+		// blank category because it cannot be null
+	}
 
 	public int update(IProduct product) {
 		String sql = "UPDATE products SET remaining_quantity=? WHERE product_id =?";
@@ -90,4 +98,29 @@ public class ProductDAO implements IProductDAO {
 		 
 		return jdbcTemplate.query(sql, rowMapper);
 	}
+	
+	public List<IProduct> getHotProducts() {
+		String sql = "SELECT * FROM hot_products";
+		
+		RowMapper rowMapper = new RowMapper<IProduct>() {
+
+			public IProduct mapRow(ResultSet rs, int rowNum) throws SQLException {
+				int id = rs.getInt("product_id");
+				String name = rs.getString("name");
+				String site_name = rs.getString("site_name");
+				String site_link = rs.getString("site_link");
+				String old_price = rs.getString("old_price");
+				String new_price = rs.getString("name");
+				String remaining_quantity = rs.getString("remaining_quantity");
+				String limit_quantity = rs.getString("limit_quantity");
+				String img_string = rs.getString("img_string");
+				String category = rs.getString("category");
+				
+				return new DataBaseProduct(id, site_link, site_name, name, old_price, new_price, remaining_quantity, limit_quantity, img_string, category);
+			}
+		};
+		 
+		return jdbcTemplate.query(sql, rowMapper);
+	}
+	
 }

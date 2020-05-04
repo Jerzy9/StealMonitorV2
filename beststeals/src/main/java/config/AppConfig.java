@@ -5,6 +5,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import interfaces.IDataBaseConnection;
+import loaders.Loader;
+import mainloaders.MainLoader;
 import mysql.Connection;
 import mysql.ProductDAO;
 
@@ -25,4 +27,14 @@ public class AppConfig {
 			return null;
 		}
     }
+	
+	@Bean
+	public Loader loader() {
+		return new Loader();
+	}
+	
+	@Bean
+	public MainLoader mainLoader() {
+		return new MainLoader();
+	}
 }
