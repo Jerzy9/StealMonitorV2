@@ -25,6 +25,7 @@ public class AppConfig {
 			e.printStackTrace();
 			System.out.println("Exception in AppConfig with connection");
 			return null;
+			
 		}
     }
 	
