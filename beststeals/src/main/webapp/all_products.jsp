@@ -8,6 +8,7 @@
 <title>Home page new</title>
 <link href="<c:url value="assets/style.css"/>" rel="stylesheet">
 <link href="<c:url value="assets/all.css"/>" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 </head>
 <body>
@@ -21,11 +22,49 @@
                     <a href="xd"><li>Inne</li></a>
                 </ul>
             </nav>
+            
+            <div class="behind-nav">
+                
+            </div>
 
             <div class="content">
             
-            	<div class="filter">
-
+            	<div class="side-div">
+                    <div class="filter">
+                        <form id="search">
+                            <input type="text" placeholder="Szukaj">
+                        </form>
+                        <div class="details">
+                            <div class="checkboxes">
+                                <h3>Filtry</h3>
+                                <div class="check">
+                                    <input type="checkbox">
+                                    <p>obniżka o 90%</p>
+                                </div>
+                                <div class="check">
+                                    <input type="checkbox">
+                                    <p>obniżka o 60%</p>
+                                </div>
+                                <div class="check">
+                                    <input type="checkbox">
+                                    <p>obniżka o 20%</p>
+                                </div>
+                                <div class="check">
+                                    <input type="checkbox">
+                                    <p>ostatnia godzina</p>
+                                </div>
+                                <div class="check">
+                                    <input type="checkbox">
+                                    <p>ostatnia minuta</p>
+                                </div>
+                            </div>
+                            <div class="slider-section">
+                                <h3>Przedział cenowy</h3>
+                                <div class="slider">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
 				<div class="products">
@@ -54,11 +93,15 @@
 	      
 					</c:forEach>
 					
-					<div class="advertisement">
-
-                	</div>
 					
 				</div>
+				
+				<div class="side-div">
+                    <img src="images/ad.png">   
+                </div>
+                <div id="up" class="up-key">
+                    <i class="arrow up"></i>
+                </div>
 
             </div>
             

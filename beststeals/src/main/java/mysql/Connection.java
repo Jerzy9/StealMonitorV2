@@ -14,7 +14,7 @@ public class Connection implements IDataBaseConnection{
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/steal_monitor?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 		dataSource.setUsername("root");
-		dataSource.setPassword("kapiszony123");
+		dataSource.setPassword("passwd");
 		
 		return dataSource;
 	}

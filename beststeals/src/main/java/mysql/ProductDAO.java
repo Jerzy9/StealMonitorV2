@@ -86,7 +86,7 @@ public class ProductDAO implements IProductDAO {
 				String site_name = rs.getString("site_name");
 				String site_link = rs.getString("site_link");
 				String old_price = rs.getString("old_price");
-				String new_price = rs.getString("name");
+				String new_price = rs.getString("new_price");
 				String remaining_quantity = rs.getString("remaining_quantity");
 				String limit_quantity = rs.getString("limit_quantity");
 				String img_string = rs.getString("img_string");
@@ -110,7 +110,7 @@ public class ProductDAO implements IProductDAO {
 				String site_name = rs.getString("site_name");
 				String site_link = rs.getString("site_link");
 				String old_price = rs.getString("old_price");
-				String new_price = rs.getString("name");
+				String new_price = rs.getString("new_price");
 				String remaining_quantity = rs.getString("remaining_quantity");
 				String limit_quantity = rs.getString("limit_quantity");
 				String img_string = rs.getString("img_string");

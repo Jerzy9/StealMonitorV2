@@ -23,55 +23,112 @@
                     <a href="xd"><li>Inne</li></a>
                 </ul>
             </nav>
+            
+            <div class="behind-nav">
+                
+            </div>
 
             <div class="content">
-
-				<c:forEach items="${list}" var="item">
-                <div class="steal">
-                    <div class="left-side">
-                        <h3>${item.getName()}</h3>
-                        <img src="${item.getImage()}">
-                        <div class="prices">
-                            <p class="new-price">${item.getNewPrice()}</p>
-                            <p class="old-price">${item.getOldPrice()}</p>
-                        </div>
-                    </div>
-                    <div class="right-side">
-                        <h2>${item.getSiteName()}</h2>
-                        <div class="time">
-                            <h3>Do końca oferty pozostalo</h3>
-                            <div class="time-cons">
-                                <div class="time-con"> 
-                                    <p class="time-text">godzin</p>
-                                    <div class="time-box">
-                                        <p class="time-box-number" id="hours">00</p>
-                                    </div>
+            
+            <div class="side-div">
+                    <div class="filter">
+                        <form id="search">
+                            <input type="text" placeholder="Szukaj">
+                        </form>
+                        <div class="details">
+                            <div class="checkboxes">
+                                <h3>Filtry</h3>
+                                <div class="check">
+                                    <input type="checkbox">
+                                    <p>obniżka o 90%</p>
                                 </div>
-                                <div class="time-con"> 
-                                    <p class="time-text">minut</p>
-                                    <div class="time-box">
-                                        <p class="time-box-number" id="minutes">00</p>        
-                                    </div>
+                                <div class="check">
+                                    <input type="checkbox">
+                                    <p>obniżka o 60%</p>
                                 </div>
-                                <div class="time-con"> 
-                                    <p class="time-text">sekund</p>
-                                    <div class="time-box">
-                                        <p class="time-box-number" id="seconds">00</p>    
-                                    </div>
+                                <div class="check">
+                                    <input type="checkbox">
+                                    <p>obniżka o 20%</p>
+                                </div>
+                                <div class="check">
+                                    <input type="checkbox">
+                                    <p>ostatnia godzina</p>
+                                </div>
+                                <div class="check">
+                                    <input type="checkbox">
+                                    <p>ostatnia minuta</p>
+                                </div>
+                            </div>
+                            <div class="slider-section">
+                                <h3>Przedział cenowy</h3>
+                                <div class="slider">
                                 </div>
                             </div>
                         </div>
-						<form target="_blank" action="${item.getSiteLink()}">
-						    <input class="link" type="submit" value="Przejdz do strony" />
-						</form>
-                        <div class ="counter">
-                            <p>pozostało ${item.getRemainingQuantity()} sztuk</p>
-                        </div>
-                    </div>   
+                    </div>
                 </div>
-				</c:forEach>
-
-            </div>
+                
+                
+				
+				<div class="products">
+					<c:forEach items="${list}" var="item">
+		                <div class="product">
+		                    <div class="left-side">
+		                        <h3>${item.getName()}</h3>
+		                        <img src="${item.getImage()}">
+		                        <div class="prices">
+		                            <p class="new-price">${item.getNewPrice()}</p>
+		                            <p class="old-price">${item.getOldPrice()}</p>
+		                        </div>
+		                    </div>
+		                    <div class="right-side">
+		                        <h2>${item.getSiteName()}</h2>
+		                        <div class="time">
+		                            <h3>Do końca oferty pozostalo</h3>
+		                            <div class="time-cons">
+		                                <div class="time-con"> 
+		                                    <p class="time-text">godzin</p>
+		                                    <div class="time-box">
+		                                        <p class="time-box-number" id="hours">00</p>
+		                                    </div>
+		                                </div>
+		                                <div class="time-con"> 
+		                                    <p class="time-text">minut</p>
+		                                    <div class="time-box">
+		                                        <p class="time-box-number" id="minutes">00</p>        
+		                                    </div>
+		                                </div>
+		                                <div class="time-con"> 
+		                                    <p class="time-text">sekund</p>
+		                                    <div class="time-box">
+		                                        <p class="time-box-number" id="seconds">00</p>    
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>
+								<form target="_blank" action="${item.getSiteLink()}">
+								    <input class="link" type="submit" value="Przejdz do strony" />
+								</form>
+		                        <div class ="counter">
+		                            <p>pozostało ${item.getRemainingQuantity()} sztuk</p>
+		                        </div>
+		                    </div>   
+		                </div>
+					</c:forEach>
+				
+				</div>
+				
+				<div class="side-div">
+                    <img src="images/ad.png">   
+                </div>
+                <div id="up" class="up-key">
+                    <i class="arrow up"></i>
+                </div>
+                
+          </div>
+          
+            
+            
             
     </div>
 	
