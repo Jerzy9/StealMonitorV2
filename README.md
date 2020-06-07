@@ -1,4 +1,6 @@
 # StealMonitorV2
-autorzy:
+authors:
 Kamil Bernasiński
 Konrad Zbylut
+PROJECT UNFINISHED -> IN PROGRESS
+
