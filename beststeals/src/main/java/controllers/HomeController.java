@@ -26,15 +26,11 @@ public class HomeController {
 	@RequestMapping("/")
 	public ModelAndView home() {
 
-		//MainLoader ml = new MainLoader();
 		         
 		List<IProduct> products = new ArrayList<IProduct>();
 		try {
 			products = productDAO.getHotProducts();
 
-			//products = ml.getHotProducts();
-			//this won't work, because if you want to use @Autowired, 
-			//you have to use it everywhere, so you can't just create there "new MainLoader"
 			
 		} catch (Exception e) {
 			e.printStackTrace();

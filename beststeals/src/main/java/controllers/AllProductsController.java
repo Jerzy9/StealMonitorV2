@@ -23,8 +23,6 @@ public class AllProductsController {
 	
 	@RequestMapping("/all")
 	public ModelAndView home() {
-
-		MainLoader ml = new MainLoader();
 		
 		List<IProduct> products = new ArrayList<IProduct>();
 		try {

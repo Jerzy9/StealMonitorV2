@@ -51,7 +51,7 @@ public class Runner {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("TEMP ERROR");
+			System.out.println("Exception in Runner with mainLoader.getHotProducts");
 		}
 		for (IProduct product : hotProducts) {
 			productDAO.saveHot(product);
